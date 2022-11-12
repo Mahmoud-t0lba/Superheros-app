@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var superheros : [Superhero] = superherosData
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView(.horizontal){
+            HStack {
+                ForEach(superheros) { item in
+                    SuperheroView(superHeroData: item)
+                }
+            }//: HStack
+            .padding(20)
         }
-        .padding()
     }
 }
 
